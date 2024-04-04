@@ -29,9 +29,9 @@ Os nomes ficam armazenados na tabela "nomes" e seu id -do tipo integer primary k
 Então, se na tabela "nomes" o nome "Rafael" tiver id = 1, para criar outro número associado ao nome "Rafael", basta definir no campo numeros.id_nome = 1
 
 ### Tabela "nomes"
-![tabelaNomes](https://cdn.discordapp.com/attachments/715218092560613476/1214335101824016384/image.png?ex=65f8bcb1&is=65e647b1&hm=dd00c1a67c3c1179ab962027bf6321c99689a45aa36df7e7fbd5583b04ace619&)
+![tabelaNomes](https://github.com/Rafaelszc/Contatos-Python/blob/main/fotos/tabelaNomes.png?raw=true)
 ### Tabela "numeros"
-![tabelaNumeros](https://cdn.discordapp.com/attachments/715218092560613476/1214335109545852999/image.png?ex=65f8bcb3&is=65e647b3&hm=db2150b4db1caf5b9ef9ae88a17ef7f35469bcd4e26c9eb11a74eacb0e055e83&)
+![tabelaNumeros](https://github.com/Rafaelszc/Contatos-Python/blob/main/fotos/tabelaNumeros.png?raw=true)
 ### Tabela "descs"
-![tabelaDescs](https://cdn.discordapp.com/attachments/715218092560613476/1214335117464576020/image.png?ex=65f8bcb5&is=65e647b5&hm=a6b9052f0f2f181d7d69f3b1b133a49dbacee76dded3c74e519c7ca6db876623&)
+![tabelaDescs](https://github.com/Rafaelszc/Contatos-Python/blob/main/fotos/tabelaDescs.png?raw=true)
 
