@@ -1,7 +1,7 @@
 import sqlite3
 
 def criar(nome, numero, desc):
-    conexao = sqlite3.connect('contatos.db')
+    conexao = sqlite3.connect('resources/databases/contatos.db')
     cursor = conexao.cursor()
     conexao.row_factory = sqlite3.Row
     cursor.execute('insert into nomes(nome) values(?)', ([nome]))
@@ -14,7 +14,7 @@ def criar(nome, numero, desc):
     conexao.close()
 
 def criar_existente(nome, numero, desc):
-    conexao = sqlite3.connect('contatos.db')
+    conexao = sqlite3.connect('resources/databases/contatos.db')
     cursor = conexao.cursor()
     conexao.row_factory = sqlite3.Row
     resname = cursor.execute("""select id from nomes where nome = ?""", (nome,))
@@ -27,7 +27,7 @@ def criar_existente(nome, numero, desc):
     conexao.close()
 
 def verificar(nomes, numeros, descs):
-    conexao = sqlite3.connect('contatos.db')
+    conexao = sqlite3.connect('resources/databases/contatos.db')
     cursor = conexao.cursor()
     conexao.row_factory = sqlite3.Row
     if nomes == '' or numeros == '' or descs == '':
@@ -43,7 +43,7 @@ def verificar(nomes, numeros, descs):
         conexao.close()
 
 def mostrar(num):
-    conexao = sqlite3.connect('contatos.db')
+    conexao = sqlite3.connect('resources/databases/contatos.db')
     cursor = conexao.cursor()
     conexao.row_factory = sqlite3.Row
     p = cursor.execute('select id from nomes')
@@ -74,7 +74,7 @@ def mostrar(num):
     conexao.close()
 
 def pesquisar(arg):
-    conexao = sqlite3.connect('contatos.db')
+    conexao = sqlite3.connect('resources/databases/contatos.db')
     cursor = conexao.cursor()
     conexao.row_factory = sqlite3.Row
     try:
@@ -114,3 +114,16 @@ def pesquisar(arg):
         cursor.close()
         conexao.close()
         return['', 'Nada encontrado']
+    
+
+def devBackup():
+    import os
+
+    os.remove('resources/databases/contatos.db')
+    conexao = sqlite3.connect('resources/databases/contatos.db')
+    cursor = conexao.cursor()
+    cursor.execute('CREATE TABLE nomes(id integer primary key autoincrement, nome text)')
+    cursor.execute('CREATE TABLE numeros(id integer primary key autoincrement, numero integer, id_nome integer, id_desc integer)')
+    cursor.execute('CREATE TABLE descs(id integer primary key autoincrement, desc text)')
+    cursor.close()
+    conexao.close()

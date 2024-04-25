@@ -13,22 +13,22 @@ tk.set_default_color_theme('dark-blue')
 main = tk.CTkFrame(master=janela, width=500, height=700)
 main.pack()
 
-lupa = Image.open("fotos/lupa.png")
-user = Image.open("fotos/user.png")
-seta = Image.open("fotos/seta.png")
-setaback = Image.open("fotos/setaback.png")
-add = Image.open("fotos/add.png")
+lupa = Image.open("resources/images/lupa.png")
+user = Image.open("resources/images/user.png")
+seta = Image.open("resources/images/seta.png")
+setaback = Image.open("resources/images/setaback.png")
+add = Image.open("resources/images/add.png")
 
 q = 0
-def qmais():
+def nextpage():
     global q
     q += 1
     return q
-def qmenos():
+def backpage():
     global q 
     q -= 1
     return q
-def verificarq(num):
+def verifypage(num):
     global q
     if q >= num-1:
         q = -1
@@ -91,10 +91,10 @@ try:
     user_num = tk.CTkLabel(master=frame3, text=maindb.mostrar(q)[1], font=('Arial', 25))
     user_num.pack(padx = 20, pady = 20)
 
-    back = tk.CTkButton(master=frame1, text='', image=tk.CTkImage(setaback, setaback), width= 20, height= 20, corner_radius=40, fg_color='transparent', hover_color='#383838', command= lambda: (verificarq(maindb.mostrar('quantidade')),qmenos(), user_num.configure(text= maindb.mostrar(q)[1]), user_nome.configure(text= maindb.mostrar(q)[0])))
+    back = tk.CTkButton(master=frame1, text='', image=tk.CTkImage(setaback, setaback), width= 20, height= 20, corner_radius=40, fg_color='transparent', hover_color='#383838', command= lambda: (verifypage(maindb.mostrar('quantidade')),backpage(), user_num.configure(text= maindb.mostrar(q)[1]), user_nome.configure(text= maindb.mostrar(q)[0])))
     back.place(x = 30, y= 325, anchor='center')
 
-    next = tk.CTkButton(master=frame1, text='', image=tk.CTkImage(seta, seta), width= 20, height= 20, corner_radius=40, fg_color='transparent', hover_color='#383838', command= lambda: (verificarq(maindb.mostrar('quantidade')), qmais(), user_num.configure(text= maindb.mostrar(q)[1]), user_nome.configure(text= maindb.mostrar(q)[0])))
+    next = tk.CTkButton(master=frame1, text='', image=tk.CTkImage(seta, seta), width= 20, height= 20, corner_radius=40, fg_color='transparent', hover_color='#383838', command= lambda: (verifypage(maindb.mostrar('quantidade')), nextpage(), user_num.configure(text= maindb.mostrar(q)[1]), user_nome.configure(text= maindb.mostrar(q)[0])))
     next.place(x = 430, y= 325, anchor='center')
 
     
